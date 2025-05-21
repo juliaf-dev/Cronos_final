@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ECF0F1;
+}
+
+.main-container {
+  padding: 20px;
+}
+
+.slogan {
+  margin: 30px 0;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #2C3E50;
+  font-style: italic;
+  padding: 0 20%;
+  line-height: 1.6;
+}
+
+.disciplinas {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.disciplinas h3 {
+  color: #2C3E50;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.disciplinas-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.disciplina-card {
+  background: #2C3E50;
+  color: white;
+  padding: 25px 40px;
+  border-radius: 12px;
+  min-width: 120px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.disciplina-card:hover {
+  transform: translateY(-5px);
+  background: #F39C12;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.disciplina-card h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}

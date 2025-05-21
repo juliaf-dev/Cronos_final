@@ -1,0 +1,24 @@
+.flashcard {
+  border: 2px solid #f08080;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+.flashcard-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.flashcard-question {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.flashcard-answer {
+  text-decoration: underline;
+  color: blue;
+}

@@ -1,0 +1,74 @@
+/* Header.css atualizado */
+
+:root {
+  --primary-color: #2C3E50;
+  --secondary-color: #3498DB;
+  --accent-color: #E67E22;
+  --light-bg: #ECF0F1;
+  --medium-gray: #BDC3C7;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary-color);
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  height: 45px;
+  width: 45px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-left button, 
+.nav-right button {
+  margin-right: 10px;
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-left button:hover,
+.nav-right button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.nav-right button.user-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.nav-right input {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--medium-gray);
+  background-color: white;
+  min-width: 200px;
+}
+
+/* Efeito para botões ativos */
+.nav-left button.active {
+  background-color: var(--secondary-color);
+  color: white;
+}

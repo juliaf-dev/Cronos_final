@@ -1,0 +1,22 @@
+/* src/css/search.css */
+/* ... (mantenha os estilos anteriores) ... */
+
+.search-result-item.subitem {
+  padding-left: 2rem;
+  position: relative;
+}
+
+.search-result-item.subitem:before {
+  content: "→";
+  position: absolute;
+  left: 1rem;
+  color: #666;
+}
+
+.item-category {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
