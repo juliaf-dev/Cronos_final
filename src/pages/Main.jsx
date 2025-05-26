@@ -1,9 +1,8 @@
 import React from 'react';
 import '../../src/css/Main.css';
-import Header from '../components/Header';
 import FlashcardRandon from '../components/FlashcardRandon';
-import ResumoCarosel from '../components/ResumoCarosel';
-
+import ResumoAtalhos from '../components/ResumoAtalhos';
+import ChatAssistente from '../components/ChatAssistente';
 const Main = ({ navegarParaMateria }) => {
   const materiasData = [
     { id: 1, nome: "História" },
@@ -20,7 +19,7 @@ const Main = ({ navegarParaMateria }) => {
         "Desafie sua mente, explore novas ideias e aprenda de forma ativa: sua jornada de conhecimento começa aqui!"
       </p>
       <FlashcardRandon/>
-      <ResumoCarosel/>
+      <ResumoAtalhos/>
      
 
       <div className="disciplinas">
@@ -34,9 +33,12 @@ const Main = ({ navegarParaMateria }) => {
           >
             <h2>{materia.nome}</h2>
           </div>
+          
         ))}
         </div>
       </div>
+       <div className="card-chat">
+        </div>
       </div>
     </div>
   );

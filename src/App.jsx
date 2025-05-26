@@ -8,11 +8,19 @@ import Filosofia from './pages/Materia/Filosofia';
 import Sociologia from './pages/Materia/Sociologia';
 import Header from './components/Header';
 import Login from './pages/Login';
+import Perfil from './pages/Perfil';
+import Suporte from './pages/Suporte';
+import ChatAssistente from './components/ChatAssistente';
+import Conteudo from './pages/Conteudos';
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [materiaAtual, setMateriaAtual] = useState(null);
+
+  const [paginaAtual, setPaginaAtual] = useState('main');
+  const [conteudoSelecionado, setConteudoSelecionado] = useState(null);
 
   useEffect(() => {
     // Verificar autenticação ao carregar o app
@@ -56,18 +64,29 @@ function App() {
   const AuthenticatedApp = () => {
     const navigate = useNavigate();
 
-    const navegarParaMateria = (materia) => {
-      setMateriaAtual(materia.nome);
-      const nomeNormalizado = materia.nome
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase();
-      navigate(`/materia/${nomeNormalizado}`);
-    };
-
-    const voltarParaMain = () => {
+      const voltarParaMain = () => {
       setMateriaAtual(null);
       navigate('/main');
     };
+
+    const navegarParaMateria = (materia) => {
+  setMateriaAtual(materia.nome);
+  const nomeNormalizado = materia.nome
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  navigate(`/materia/${nomeNormalizado}`);
+};
+
+
+    const navegarParaConteudo = (conteudo) => {
+  setConteudoSelecionado(conteudo);  // atualiza o estado com o conteúdo selecionado
+  const nomeMateria = materiaAtual
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  navigate(`/materia/${nomeMateria}/conteudo` , {
+  state: { conteudo }, });
+};
+
 
     return (
       <>
@@ -77,14 +96,20 @@ function App() {
           onLogout={handleLogout}
           user={user}
         />
-        
+        <ChatAssistente/>
         <Routes>
-          <Route path="/main" element={<Main navegarParaMateria={navegarParaMateria} />} />
-          <Route path="/materia/geografia" element={<Geografia voltarParaMain={voltarParaMain} />} />
-          <Route path="/materia/historia" element={<Historia voltarParaMain={voltarParaMain} />} />
-          <Route path="/materia/filosofia" element={<Filosofia voltarParaMain={voltarParaMain} />} />
-          <Route path="/materia/sociologia" element={<Sociologia voltarParaMain={voltarParaMain} />} />
+          <Route path="/main" element={<Main navegarParaMateria={navegarParaMateria}  />} />
+          <Route path="/materia/geografia" element={<Geografia voltarParaMain={voltarParaMain} navegarParaConteudo={navegarParaConteudo}/>} />
+          <Route path="/materia/historia" element={<Historia voltarParaMain={voltarParaMain} navegarParaConteudo={navegarParaConteudo} />} />
+          <Route path="/materia/filosofia" element={<Filosofia voltarParaMain={voltarParaMain} navegarParaConteudo={navegarParaConteudo}/>} />
+          <Route path="/materia/sociologia" element={<Sociologia voltarParaMain={voltarParaMain} navegarParaConteudo={navegarParaConteudo}/>} />
           <Route path="*" element={<Navigate to="/main" replace />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/evolucao" element={<Perfil />} />
+          <Route path="/suporte" element={<Suporte />} />
+          <Route path="/materia/:materiaNome/conteudo" element={<Conteudo voltarParaMain={voltarParaMain} />} />
+
+
         </Routes>
       </>
     );

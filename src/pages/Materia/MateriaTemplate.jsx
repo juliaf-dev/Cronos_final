@@ -17,6 +17,7 @@ const MateriaTemplate = ({
   };
 
   return (
+    <div className="materia-body">
     <div className="materia-container">
       <button onClick={voltarParaMain} className="botao-voltar" style={{ backgroundColor: corPrimaria }}>
         ← Voltar
@@ -57,6 +58,7 @@ const MateriaTemplate = ({
         ))}
       </div>
     </div>
+     </div>
   );
 };
 
